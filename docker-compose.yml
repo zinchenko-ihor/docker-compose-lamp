@@ -46,6 +46,9 @@ services:
         mode: host
     environment:
       MYSQL_ROOT_PASSWORD: docker
+      MYSQL_DATABASE: wordpress
+      MYSQL_USER: wordpress
+      MYSQL_PASSWORD: wordpress
       TZ: Europe/Kiev
     volumes:
       - ./mysql:/var/lib/mysql
@@ -56,17 +59,20 @@ services:
     image: wordpress:latest
     volumes:
       - ./wordpress_data:/var/www/html
-    ports:
-      - "8000:80"
+    ports: 
+      - target: 80
+        published: 8000
+        protocol: tcp
+        mode: host
     restart: always
     environment:
-      WORDPRESS_DB_HOST: mariadb:3306
+      WORDPRESS_DB_HOST: mysql:3306
       WORDPRESS_DB_USER: wordpress
       WORDPRESS_DB_PASSWORD: wordpress
       WORDPRESS_DB_NAME: wordpress
     links:
       - mysql
     restart: always
-    #volumes:
-     # db_data: {}
-      #wordpress_data: {}
+  volumes:
+    db_data: {}
+    wordpress_data: {}
