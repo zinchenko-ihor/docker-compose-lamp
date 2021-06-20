@@ -50,7 +50,7 @@ services:
     volumes:
       - ./mysql:/var/lib/mysql
       - ./config/mysql/my.cnf:/etc/mysql/conf.d/my.cnf
-    wordpress:
+  wordpress:
     depends_on:
       - mysql
     image: wordpress:latest
