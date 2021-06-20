@@ -74,5 +74,5 @@ services:
       - mysql
     restart: always
     volumes:
-      mysql: {}
-      wordpress_data: {}
+      - mysql: {}
+      - wordpress_data: {}
