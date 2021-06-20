@@ -73,6 +73,6 @@ services:
     links:
       - mysql
     restart: always
-  volumes:
-    db_data: {}
-    wordpress_data: {}
+    volumes:
+      mysql: {}
+      wordpress_data: {}
