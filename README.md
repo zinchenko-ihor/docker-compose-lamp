@@ -7,10 +7,4 @@ The main services included are:
 * PHP 7.4
 * Node.js
 * Composer
-
-## Usage
-```
-$ git clone https://github.com/davidecesarano/docker-compose-lamp.git
-$ cd docker-compose-lamp
-$ docker-compose up -d
-```
+* Wordpress
